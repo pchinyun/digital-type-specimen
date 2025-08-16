@@ -8,21 +8,12 @@ import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
 
 
 //canvas
-const canvas = document.querySelector('canvas.webGl')
+const canvas = document.querySelector('canvas.andSymbol')
 
 //scene
 const scene = new THREE.Scene(); 
-// const loader = new THREE.TextureLoader(); 
-// loader.load('static/images/sci fi grid.jpg', function(texture) {
-//     scene.background = texture; 
-//     texture.colorSpace = THREE.SRGBColorSpace; 
-// })
 
 
-//object 
-const geometry = new THREE.BoxGeometry(1,1,1) 
-const material = new THREE.MeshBasicMaterial({color:'red'})
-const box = new THREE.Mesh(geometry, material)
 
 
 //font
@@ -32,7 +23,7 @@ fontLoader.load(
     './static/font/OffBit Regular.json',
     (font) => { 
         const textGeometry = new TextGeometry(
-            '@', 
+            '&', 
             {
                 font: font, 
                 size: 2, 
@@ -45,26 +36,30 @@ fontLoader.load(
                 bevelSegments: 5
             }
         )
-        const textMaterial = new THREE.MeshNormalMaterial()
+            
+        textGeometry.center()
+
+        const textMaterial = new THREE.MeshNormalMaterial(); 
         const text = new THREE.Mesh(textGeometry, textMaterial)
+
         scene.add(text);
-        textGeometry.center(); 
-    
+  
     }
+    
 )
+
+
 
 
 //size
 const size = { 
-    width: window.innerWidth, 
-    height: window.innerHeight
+    width:  400, 
+    height: 400
 }
 
 //camera
 const camera = new THREE.PerspectiveCamera(75, size.width / size.height); 
-camera.position.z = 1.5; 
-camera.position.x = 1.5; 
-camera.position.y = 1 
+camera.position.z = 2; 
 scene.add(camera)
 
 
