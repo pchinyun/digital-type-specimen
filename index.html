@@ -43,6 +43,7 @@
 
         <div class="grid">
             <canvas class="andSymbol"></canvas>
+            <canvas class="percentSymbol"></canvas>
             <div class="gridItem num">
                <h2 class="three">3</h2>
                <div class="specifications">
@@ -105,21 +106,61 @@
     <div class="styles">
         <div class=" style dot">
             <img src="./static/images/top a.png" alt="">
-            <h3 class="hidden">Dot</h3>
+            <h3 class="hidden">Dot</h3> 
+            <img src="./static/images/all dot.png" alt="">
         </div>
 
         <div class="style 101">
             <img src="./static/images/mid a.png" alt="">
             <h3 class="hidden">101</h3>
+            <img src="./static/images/all 101.png" alt="">
         </div>
 
         <div class="style regular">
             <img src="./static/images/btm A.png" alt="">
             <h3 class="hidden">Regular</h3>
+            <img src="./static/images/all reg.png" alt="">
         </div>
     </div>
-   
+
+
+    <div class="animation">
+        <div class="imageContainer">
+            <img src="./static/images/regular.png" alt="">
+            <img src="./static/images/101.png" alt="">
+            <img src="./static/images/dot.png" alt="">
+        </div>
+        <div class="videoContainer">
+
+        </div>
+    </div>
+
+
+    <div class="sliderContainer">
+        <div class="stylesContainer">
+          <img src="./static/images/regular.png" alt="Regular" class="styleImg" id="img1">
+          <img src="./static/images/101.png" alt="101" class="styleImg" id="img2">
+          <img src="./static/images/dot.png" alt="Dot" class="styleImg" id="img3">
+        </div>
+
+      
+        <div class="sliderWrapper">
+            <div class="sliderLabels">
+                <span>Regular</span>
+                <span>101</span>
+                <span>Dot</span>
+            </div>
+
+            <div class="slider">
+                <input type="range" id="styleSlider" min="0" max="100" step="1" value="0">
+            </div>
+        </div>
+    </div>
+      
+
     <script type="module" src="script.js"></script>
     <script type="module" src="andScript.js"></script>
+    <script type="module" src="percentScript.js"></script>
+    <script src="./main.js"></script>
 </body>
 </html>

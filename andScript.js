@@ -5,51 +5,11 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js'; 
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js'; 
 
-
-
 //canvas
 const canvas = document.querySelector('canvas.andSymbol')
 
 //scene
 const scene = new THREE.Scene(); 
-
-
-
-
-//font
-const fontLoader = new FontLoader();
-
-fontLoader.load(
-    './static/font/OffBit Regular.json',
-    (font) => { 
-        const textGeometry = new TextGeometry(
-            '&', 
-            {
-                font: font, 
-                size: 2, 
-                depth: 0.1,
-                curveSegments: 12,
-                bevelEnabled: true,
-                bevelThickness: 0.03,
-                bevelSize: 0.02,
-                bevelOffset: 0,
-                bevelSegments: 5
-            }
-        )
-            
-        textGeometry.center()
-
-        const textMaterial = new THREE.MeshNormalMaterial(); 
-        const text = new THREE.Mesh(textGeometry, textMaterial)
-
-        scene.add(text);
-  
-    }
-    
-)
-
-
-
 
 //size
 const size = { 
@@ -62,31 +22,61 @@ const camera = new THREE.PerspectiveCamera(75, size.width / size.height);
 camera.position.z = 2; 
 scene.add(camera)
 
+//renderer
+const renderer = new THREE.WebGLRenderer({canvas: canvas, alpha:true})
+renderer.setSize(size.width, size.height);
 
 //orbit 
 const controls = new OrbitControls(camera, canvas); 
 controls.enableZoom = false;    
-//animation 
+controls.enableDamping = true;   // smooth interaction
+
+//global reference for text
+let text;
+
+//font
+const fontLoader = new FontLoader();
+fontLoader.load(
+    './static/font/OffBit Regular.json',
+    (font) => { 
+        const textGeometry = new TextGeometry('&', {
+            font: font, 
+            size: 2, 
+            depth: 0.1,
+            curveSegments: 12,
+            bevelEnabled: true,
+            bevelThickness: 0.03,
+            bevelSize: 0.02,
+            bevelOffset: 0,
+            bevelSegments: 5
+        });
+            
+        textGeometry.center();
+
+        const textMaterial = new THREE.MeshNormalMaterial(); 
+        text = new THREE.Mesh(textGeometry, textMaterial);
+
+        scene.add(text);
+    }
+);
+
+//timer
 const timer = new Timer(); 
 
-const tick = () => 
-{ 
+//animation loop
+const tick = () => { 
 	timer.update(); 
-	const elaspedTime = timer.getDelta(); 
+	const deltaTime = timer.getDelta(); 
 	
-    
-	controls.update(); //this throws error, need to check why 
+    // spin text if loaded
+	if (text) {
+		text.rotation.y += -0.5 * deltaTime;  // continuous spin
+	}
 
-	
+	controls.update(); // needed if enableDamping = true
 	renderer.render(scene,camera); 
 	
-	window.requestAnimationFrame(tick)
+	window.requestAnimationFrame(tick);
 };  
 
-
-//renderer
-const renderer = new THREE.WebGLRenderer({canvas: canvas, alpha:true})
-renderer.setSize(size.width, size.height);
-renderer.render(scene, camera)
-tick(); 
-
+tick();
