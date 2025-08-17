@@ -53,12 +53,27 @@ fontLoader.load(
             
         textGeometry.center();
 
-        const textMaterial = new THREE.MeshNormalMaterial(); 
+        const textMaterial = new THREE.MeshStandardMaterial({
+            color: 0xff0000,     // base metal tint (light gray = steel)
+            metalness: 0.3,        // fully metallic
+            roughness: 0.1,      // lower = shinier, higher = rough brushed metal
+            envMapIntensity: 1.2 // strength of environment reflections
+        });
+
         text = new THREE.Mesh(textGeometry, textMaterial);
 
         scene.add(text);
     }
 );
+
+//lights 
+const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+dirLight.position.set(5, 10, 5);
+scene.add(dirLight);
+
+// Softer ambient light
+const ambient = new THREE.AmbientLight(0xffffff, 0.5);
+scene.add(ambient);
 
 //timer
 const timer = new Timer(); 

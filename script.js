@@ -12,11 +12,6 @@ const canvas = document.querySelector('canvas.webGl')
 
 //scene
 const scene = new THREE.Scene(); 
-// const loader = new THREE.TextureLoader(); 
-// loader.load('static/images/sci fi grid.jpg', function(texture) {
-//     scene.background = texture; 
-//     texture.colorSpace = THREE.SRGBColorSpace; 
-// })
 
 
 //object 
@@ -45,13 +40,31 @@ fontLoader.load(
                 bevelSegments: 5
             }
         )
-        const textMaterial = new THREE.MeshNormalMaterial()
+        const textMaterial = new THREE.MeshStandardMaterial({
+            color: 0xff0000,    
+            metalness: 0.3,      
+            roughness: 0.1,      
+            envMapIntensity: 1.2 
+        });
+        
+        // const textMaterial = new THREE.MeshNormalMaterial(); 
+
+        
         const text = new THREE.Mesh(textGeometry, textMaterial)
         scene.add(text);
         textGeometry.center(); 
     
     }
 )
+
+//lights 
+const dirLight = new THREE.DirectionalLight(0xffffff, 3);
+dirLight.position.set(5, 10, 5);
+scene.add(dirLight);
+
+// Softer ambient light
+const ambient = new THREE.AmbientLight(0xffffff, 0.5);
+scene.add(ambient);
 
 
 //size

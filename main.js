@@ -26,3 +26,31 @@
   slider.dispatchEvent(new Event('input'));
 
   
+  const images = document.querySelectorAll('.imageContainer img');
+const videos = document.querySelectorAll('.videoContainer video');
+
+images.forEach(img => {
+  img.addEventListener('mouseenter', () => {
+    const index = img.getAttribute('data-index');
+
+    // Hide + pause all videos
+    videos.forEach(video => {
+      video.pause();
+      video.currentTime = 0;
+      video.style.display = 'none';
+    });
+
+    // Show + play the corresponding one
+    const video = videos[index];
+    video.style.display = 'block';
+    video.play();
+  });
+
+  img.addEventListener('mouseleave', () => {
+    const index = img.getAttribute('data-index');
+    const video = videos[index];
+    video.pause();
+    video.currentTime = 0;
+    video.style.display = 'none';
+  });
+});
