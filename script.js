@@ -1,9 +1,9 @@
-import * as THREE from 'three'; 
+import * as THREE from './node_modules/three'; 
 import './style.css'; 
-import { Timer } from 'three/src/core/Timer.js'; 
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js'; 
-import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js'; 
+import { Timer } from './node_modules/three/src/core/Timer.js'; 
+import { OrbitControls } from './node_modules/three/addons/controls/OrbitControls.js';
+import { FontLoader } from './node_modules/three/examples/jsm/loaders/FontLoader.js'; 
+import { TextGeometry } from './node_modules/three/examples/jsm/geometries/TextGeometry.js'; 
 
 
 
