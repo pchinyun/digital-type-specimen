@@ -1,11 +1,11 @@
 @font-face {
     font-family: offbit;
-    src: url('./static/font/OffBit\ Regular.json');
+    src: url('./static/font/OffBit-101.ttf');
 }
 
 @font-face {
     font-family: offbit;
-    src: url('./static/font/OffBit\ Bold.json');
+    src: url('./static/font/OffBit-101Bold.ttf');
     font-weight: bold;
 }
 
