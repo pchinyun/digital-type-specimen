@@ -1,4 +1,4 @@
-import * as THREE from './three.module'
+import * as THREE from './three.module.js'
 import './style.css'; 
 import { OrbitControls } from './OrbitControls.js';
 import { FontLoader } from './FontLoader.js'; 

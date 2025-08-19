@@ -1,4 +1,4 @@
-import * as THREE from './three.module'
+import * as THREE from './three.module.js'
 import './style.css'; 
 import { OrbitControls } from './OrbitControls.js';
 import { FontLoader } from './FontLoader.js'; 
@@ -33,7 +33,7 @@ let text;
 // font loader
 const fontLoader = new FontLoader();
 fontLoader.load(
-  './static/font/OffBit Regular.json', // keep relative path to font
+  './static/font/OffBit Regular.json',
   (font) => {
     const textGeometry = new TextGeometry('&', {
       font: font,
