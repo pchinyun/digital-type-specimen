@@ -15,6 +15,10 @@
     box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     overflow-x: hidden;
     height: 200vh;
@@ -24,6 +28,10 @@ body {
       linear-gradient(90deg, #222 1px, transparent 1px);
     background-size: 40px 40px; 
   }
+
+.kern { 
+  letter-spacing: 0.2rem;
+}
 
 .pageWrapper { 
     margin: 2rem;
@@ -643,15 +651,36 @@ nav {
     display: flex;
     flex-direction: row;      
     justify-content: center;  
-    align-items: center;                 
-    width: 100%;             
+    align-items: stretch;                 
+    width: 100%;   
+    gap: 5px;          
   }
   
   .posters img {
-    width: 50%;               
-    height: auto;
+   max-height: 120vh;
+   width: 100vw;
     object-fit: contain;
   }
 
-
+  .footer {
+    background: #111218;
+    color: #ff0000;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    font-family: 'Offbit'; 
+    margin-top: 7rem;
+  }
+  
+  .footer a {
+    color: #ff0000;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  
   

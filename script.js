@@ -18,7 +18,7 @@ const box = new THREE.Mesh(geometry, material);
 
 // font
 const fontLoader = new FontLoader();
-let text; // global reference
+let text; 
 
 fontLoader.load(
     './static/font/OffBit Regular.json',
@@ -43,6 +43,8 @@ fontLoader.load(
             roughness: 0.1,      
             envMapIntensity: 1.2 
         });
+
+
 
         text = new THREE.Mesh(textGeometry, textMaterial);
         scene.add(text);

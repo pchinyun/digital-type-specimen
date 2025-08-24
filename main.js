@@ -54,3 +54,28 @@ images.forEach(img => {
     video.style.display = 'none';
   });
 });
+
+// Scroll-to-Top Pixel Button
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+const footerLink = document.querySelector('.footer-link');
+
+window.addEventListener('scroll', () => {
+  scrollTopBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+});
+
+// Smooth scroll on button click
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+// Smooth scroll for footer "Back to Top" link
+footerLink.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
