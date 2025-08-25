@@ -1,8 +1,8 @@
-import * as THREE from './three.module.js'
+import * as THREE from 'three'
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { FontLoader } from 'three/addons/loaders/FontLoader.js';
+import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 import './style.css'; 
-import { OrbitControls } from './OrbitControls.js';
-import { FontLoader } from './FontLoader.js'; 
-import { TextGeometry } from './TextGeometry.js';
 
 // canvas
 const canvas = document.querySelector('canvas.percentSymbol');
