@@ -349,6 +349,10 @@ nav {
     position: relative;
 }
 
+#glyphImg { 
+  margin:4rem 0rem;
+}
+
 .gSpec { 
     text-align: left;
 }
@@ -657,7 +661,7 @@ nav {
   }
   
   .posters img {
-   max-height: 120vh;
+   max-height: 100vh;
    width: 100vw;
     object-fit: contain;
   }
